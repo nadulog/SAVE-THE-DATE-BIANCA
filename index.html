@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Save the Date · Bianca XV</title>
+  <meta name="description" content="Save the date · Mis XV · Bianca · 20 de marzo de 2027">
+  <meta property="og:title" content="Save the Date · Bianca XV">
+  <meta property="og:description" content="Reservá la fecha: sábado 20 de marzo de 2027">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Pinyon+Script&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/logo-bianca.webp">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="stage" id="stage">
+    <!-- Fondo: negro + seda plateada que se mueve -->
+    <div class="bg" aria-hidden="true">
+      <div class="silk silk-1"></div>
+      <div class="silk silk-2"></div>
+      <div class="silk silk-3"></div>
+      <div class="glow"></div>
+      <div class="vignette"></div>
+    </div>
+
+    <!-- Brillos, bokeh y glitter -->
+    <canvas id="fx" aria-hidden="true"></canvas>
+
+    <!-- Escena 1 · Logo -->
+    <section class="scene" id="s-logo">
+      <div class="logo-wrap" data-sparkles>
+        <img src="assets/logo-bianca.webp" alt="Bianca · fifteen">
+        <div class="logo-shine"></div>
+      </div>
+    </section>
+
+    <!-- Escena 2 · Save the date -->
+    <section class="scene" id="s-std">
+      <h1 class="kin" aria-label="Save the date">
+        <span class="kin-word kin-save">SAVE</span>
+        <span class="kin-the">
+          <i class="kin-line"></i>
+          <span class="script" style="--d:1.3s">the</span>
+          <i class="kin-line"></i>
+        </span>
+        <span class="kin-word kin-date">DATE</span>
+      </h1>
+    </section>
+
+    <!-- Escena 3 · Fecha -->
+    <section class="scene" id="s-date">
+      <p class="caps rv" style="--d:0s">sábado</p>
+      <div class="date-row">
+        <span class="num" data-split data-drop data-d=".2">20</span>
+        <span class="month" data-type data-d="1.2">Marzo</span>
+        <span class="num" data-split data-drop data-d=".45">27</span>
+      </div>
+    </section>
+
+    <!-- Escena 4 · Nombre -->
+    <section class="scene" id="s-name">
+      <p class="caps rv" style="--d:0s">mis quince</p>
+      <h2 class="name" data-split data-drop data-d=".3">BIANCA</h2>
+      <div class="hair-row">
+        <i class="hair hair-l" style="--d:1.5s"></i>
+        <p class="script script-md" style="--d:1.9s">Te espero</p>
+        <i class="hair hair-r" style="--d:1.5s"></i>
+      </div>
+    </section>
+
+    <!-- Escena 5 · Cierre -->
+    <section class="scene" id="s-final">
+      <div class="logo-wrap logo-sm rv-logo" data-sparkles>
+        <img src="assets/logo-bianca.webp" alt="">
+        <div class="logo-shine"></div>
+      </div>
+      <p class="final-date rv" style="--d:.9s">20 <i></i><em>Marzo</em><i></i> 27</p>
+      <p class="final-note rv" style="--d:1.4s">Invitación formal próximamente</p>
+      <div class="actions rv" style="--d:2s">
+        <a class="btn" id="btn-cal" target="_blank" rel="noopener"
+           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV%20de%20Bianca&dates=20270320/20270321&details=Save%20the%20date%20%C2%B7%20Mis%20XV%20%C2%B7%20Bianca">
+          Agendar fecha
+        </a>
+        <button class="btn btn-ghost" id="btn-replay" type="button">Ver de nuevo</button>
+      </div>
+    </section>
+
+    <!-- Botón de sonido -->
+    <button class="sound-btn" id="sound-btn" type="button" aria-label="Silenciar música" hidden>
+      <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="w" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>
+      <svg class="ico-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="w" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+    </button>
+
+    <!-- Pantalla de inicio (necesaria para habilitar el sonido) -->
+    <button class="intro" id="intro" type="button">
+      <span class="intro-ring" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset=".35" stop-color="#9a9ca2"/>
+              <stop offset=".6" stop-color="#f2f3f5"/>
+              <stop offset="1" stop-color="#7e8086"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="46" />
+        </svg>
+        <span class="intro-star"></span>
+      </span>
+      <span class="intro-title">Tocá para abrir</span>
+      <span class="intro-hint">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="w" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>
+        activá el sonido
+      </span>
+    </button>
+
+    <div class="flash" id="flash" aria-hidden="true"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
